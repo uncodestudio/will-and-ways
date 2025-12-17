@@ -1,74 +1,39 @@
-// main.js - Lazy Loading Auto-Detection
+// main.js
+
+/**
+ * Will and Ways - Main Entry Point
+ * Lazy loading des modules selon les éléments présents sur la page
+ */
+
 (function() {
   'use strict';
-  
-  console.log('🚀 Initialisation du site...');
-  
+
+  console.log('🚀 Will and Ways - Initialisation...');
+
   // ==========================================
-  // CONFIGURATION DÉTECTION
+  // CONFIGURATION DES MODULES
   // ==========================================
-  const moduleDetectors = {
-    sliders: {
+  const modulesConfig = {
+    slider: {
       selector: '.splide',
-      modulePath: './modules/sliders.js',
-      initFn: 'initSliders'
-    },
-    scrollNav: {
-      selector: '.bootcamp_snap-scroll, .section_snap-scroll',
-      modulePath: './modules/scrollNav.js',
-      initFn: 'initScrollNav'
-    },
-    cmsTabs: {
-      selector: '.cms-list',
-      modulePath: './modules/cmsTabs.js',
-      initFn: 'initCMSTabs'
+      modulePath: './modules/slider.js',
+      initFn: 'init'
     },
     logoMarquee: {
       selector: '.marquee',
       modulePath: './modules/logoMarquee.js',
       initFn: 'init'
     },
-    animationTestimonies: {
-      selector: '.section_testimonies-1',
-      modulePath: './modules/animationTestimonies.js',
-      initFn: 'init'
-    },
-    accordion: {
-      selector: '[data-accordion]',
-      modulePath: './modules/accordionAnimation.js',
-      initFn: 'init'
-    },
-    cardScroll: {
-      selector: '.section_card-6',
-      modulePath: './modules/cardScroll.js',
-      initFn: 'init'
-    },
-    typewritingAnimation: {
-      selector: '[data-typewriter-phrase]',
-      modulePath: './modules/typewritingAnimation.js',
-      initFn: 'init'
-    },
-    counterUp: {
-      selector: '.section_chiffres-1',
-      modulePath: './modules/counterUp.js',
-      initFn: 'init'
-    },
-    masonryGrid: {
-      selector: '.testimonies_masonry',
-      modulePath: './modules/masonryGrid.js',
-      initFn: 'init'
-    }
   };
-  
+
   // ==========================================
-  // LAZY LOADING CONDITIONNEL
+  // LAZY LOADING
   // ==========================================
   const loadPromises = [];
   let modulesLoaded = 0;
   let modulesSkipped = 0;
-  
-  Object.keys(moduleDetectors).forEach(moduleName => {
-    const config = moduleDetectors[moduleName];
+
+  Object.entries(modulesConfig).forEach(([moduleName, config]) => {
     const elementExists = document.querySelector(config.selector);
     
     if (elementExists) {
@@ -93,7 +58,7 @@
       modulesSkipped++;
     }
   });
-  
+
   // ==========================================
   // FINALISATION
   // ==========================================
