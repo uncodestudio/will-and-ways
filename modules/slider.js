@@ -1,7 +1,9 @@
 // modules/slider.js - Gestion de tous les sliders Splide
-import Splide from '@splidejs/splide';
-
 export function init() {
+  if (typeof Splide === 'undefined') {
+    console.warn('⚠️ Splide non chargé')
+    return
+  }
   
   console.log('🎠 Module Sliders - Initialisation...');
   
