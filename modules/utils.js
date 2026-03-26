@@ -5,7 +5,7 @@
  */
 
 // Détection mode dev/prod
-export const isDev = import.meta.env.DEV
+export const isDev = import.meta.env?.DEV ?? false
 
 // Logs conditionnels (actifs uniquement en dev)
 export const log = isDev ? console.log : () => {}
