@@ -9,10 +9,17 @@
     "preview": "vite preview",
     "deploy": "npm run build && git add dist && git commit -m \"build: update dist\" && git push"
   },
-  "keywords": ["webflow", "gsap", "vite"],
+  "keywords": [
+    "webflow",
+    "gsap",
+    "vite"
+  ],
   "author": "Fabien Fournier - Uncode Studio",
   "license": "MIT",
   "devDependencies": {
     "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
   }
 }

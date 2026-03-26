@@ -14,7 +14,7 @@ export function init() {
 
     // Direction et vitesse
     const isRight = marquee.dataset.direction === 'right'
-    const speed = +marquee.dataset.speed || 15
+    const speed = +marquee.dataset.speed || 45
 
     // Force GPU
     gsap.set(content, { 

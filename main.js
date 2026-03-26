@@ -24,6 +24,11 @@
       modulePath: './modules/logoMarquee.js',
       initFn: 'init'
     },
+    usecasesStack: {
+      selector: '.usecases_item',
+      modulePath: './modules/usecasesStack.js',
+      initFn: 'init'
+    },
   };
 
   // ==========================================
